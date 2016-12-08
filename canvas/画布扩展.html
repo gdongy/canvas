@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>canvas画布扩展</title>
+    <script src="p.jquery.zjs.js"></script>
+    <script>
+        function draw21() {
+            //画矩形
+            /* 多行注释  也叫段落注释*/
+            var canvas = document.getElementById("draw21");
+            if (canvas == null) {
+                return false;
+            }
+            
+                //画布存在就画
+                //获取 画图对象 目前不支持3D
+                //画图功能都在这个对象里边
+            var context = canvas.getContext("2d");
+            //填充颜色 和画图工具一样画之前先选择颜色
+            context.fillStyle = "#FF0000";
+            //边框颜色
+            context.strokeStyle = "#0000FF";
+            //画一个矩形 确定矩形的位置 需要坐标XY  和宽高
+            context.fillRect(0, 0, 100, 100);
+            //矩形框
+            context.strokeRect(120,0,100,100);
+
+          //  alert("111");
+        };
+        function draw22() {
+            //画矩形
+            /* 多行注释  也叫段落注释*/
+            var canvas = document.getElementById("draw22");
+            if (canvas == null) {
+                return false;
+            }
+            //画布存在就画
+            //获取 画图对象 目前不支持3D
+            //画图功能都在这个对象里边
+            var context = canvas.getContext("2d");
+            //填充颜色 和画图工具一样画之前先选择颜色
+            //context.fillStyle = "#FF0000";
+            //边框颜色
+            //context.strokeStyle = "#0000FF";
+            //画一个矩形 确定矩形的位置 需要坐标XY  和宽高
+            context.fillRect(0, 0, 100, 100);
+            //矩形框
+            context.strokeRect(120, 0, 100, 100);
+            //橡皮擦 清理
+            context.clearRect(20,20,140,40);
+            //  alert("111");
+        };
+        //圆
+        function draw31() {
+            var canvas = document.getElementById("draw31");
+            if (canvas == null) {
+                return false;
+            }
+            var context = canvas.getContext("2d");
+            //开始一条路径  或者重置一条路径
+            context.beginPath();
+            //圆心 半径 起始角度 结束角度  顺时针还是逆时针
+            //PI就是π
+            context.arc(100,100,50,0,Math.PI*2,true);
+            context.fillStyle = "rgba(0,255,0,0.25)";
+            context.fill();
+
+            //关闭一条路径 不写可能会有不一样的惊喜啊
+            context.closePath();
+        }
+        function draw32() {
+            var canvas = document.getElementById("draw32");
+            if (canvas == null) {
+                return false;
+            }
+            var context = canvas.getContext("2d");
+            context.beginPath();
+            //圆心 半径 起始角度 结束角度  顺时针还是逆时针
+            //PI就是π
+            context.arc(100, 100, 50, 0, Math.PI * 2, true);
+            context.fillStyle = "rgba(0,255,0,0.25)";
+            context.fill();
+
+            //关闭一条路径 不写可能会有不一样的惊喜啊
+            context.closePath();
+
+            context.beginPath();
+            //圆心 半径 起始角度 结束角度  顺时针还是逆时针
+            //PI就是π
+            context.arc(100, 100, 30, 0, Math.PI * 2, true);
+            context.fillStyle = "rgba(255,255,255,1)";
+            context.fill();
+
+            //关闭一条路径 不写可能会有不一样的惊喜啊
+            context.closePath();
+        }
+        function draw33() {
+            var canvas = document.getElementById("draw33");
+            if (canvas == null) {
+                return false;
+            }
+            var context = canvas.getContext("2d");
+            context.beginPath();
+            //圆心 半径 起始角度 结束角度  顺时针还是逆时针
+            //PI就是π
+            context.arc(100, 100, 50, 0, Math.PI * 2, true);
+            context.fillStyle = "rgba(0,255,0,0.25)";
+            context.fill();
+
+            //关闭一条路径 不写可能会有不一样的惊喜啊
+            context.closePath();
+
+            context.beginPath();
+            //圆心 半径 起始角度 结束角度  顺时针还是逆时针
+            //PI就是π
+            context.arc(100, 100, 30, 0, Math.PI * 2, true);
+            context.fillStyle = "rgba(255,255,255,1)";
+            context.fill();
+            //关闭一条路径 不写可能会有不一样的惊喜啊
+            context.closePath();
+            context.beginPath();
+            context.strokeStyle = "rgba(255,255,255,1)";
+            context.lineWidth = 5;
+            //画线 每次都是从 moveTO 到 lineTo
+            context.moveTo(150,0);
+            context.lineTo(100, 100);
+            context.moveTo(0, 0);
+            context.lineTo(100, 100);
+            context.stroke();
+        }
+        //菊花
+        function draw41() {
+            var canvas = document.getElementById("draw41");
+            if (canvas == null) {
+                return false;
+            }
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#EEEEFF";
+            context.fillRect(0, 0, 400, 300);
+            var n = 0;
+            var dx = 150;
+            var dy = 150;
+            var s = 100;
+            context.beginPath();
+            context.fillStyle = 'rgb(100,255,100)';
+            context.strokeStyle = "rgb(0,0,100)";
+            var x = Math.sin(0);
+            var y = Math.cos(0);
+            var dig = Math.PI / 15 * 11;
+           // alert(dig);
+            for (var  i = 0; i < 30;i++){
+                var x = Math.sin(i*dig);
+                var y = Math.cos(i*dig);
+                context.lineTo(dx+x*s,dy+y*s);
+            }
+            context.closePath();
+            context.fill();
+            context.stroke();
+        }
+        //渐变
+        function draw51() {
+            var canvas = document.getElementById("draw51");
+            if (canvas == null) {
+                return false;
+            }
+            var context = canvas.getContext("2d");
+            //开始渐变坐标 结束渐变坐标
+            var gl = context.createLinearGradient(0, 0, 0, 300);
+            gl.addColorStop(0, "rgb(255, 0, 0)");//红
+            gl.addColorStop(0.5, "rgb(0, 255, 0)");//绿
+            gl.addColorStop(1, "rgb(0, 0, 255)");//蓝
+            context.fillStyle = gl;
+            context.fillRect(0, 0, 400, 300);
+        }
+        function draw52() {
+            var canvas = document.getElementById("draw52");
+            if (canvas == null) {
+                return false;
+            }
+            var context = canvas.getContext("2d");
+            var gl = context.createRadialGradient(100, 100, 0, 100, 100, 100);
+            gl.addColorStop(0, "rgb(255,0,0)");
+            gl.addColorStop(1, "rgb(50,0,0)");
+
+            context.fillStyle = gl;
+            context.beginPath();
+            context.arc(100, 100,100, 0, Math.PI * 2, true);
+            
+            context.closePath();
+            context.fill();
+
+        }
+        //弧线
+        function draw61() {
+            var canvas = document.getElementById("draw61");
+            if (canvas == null) {
+                return false;
+            }
+            var context = canvas.getContext("2d");
+            context.moveTo(50, 50);
+            //创建三次方贝塞尔曲线
+            context.bezierCurveTo(50, 50, 150, 150, 150, 150);
+            //创建二次方贝塞尔曲线
+            context.stroke();
+            context.quadraticCurveTo(150, 250, 250, 250);
+            context.stroke();
+        }
+        //交叉
+        function draw71(){
+            var canvas = document.getElementById("draw71");
+            if (canvas == null) {
+                return false;
+            }
+            var context =canvas.getContext("2d");
+            var context = canvas.getContext('2d');
+            var oprtns = new Array(
+        "source-over",
+        "destination-over",
+        "source-in",
+        "destination-in",
+        "source-out",
+        "destination-out",
+        "source-atop",
+        "destination-atop",
+        "lighter",
+        "xor",
+        "copy"
+            );
+            //组合效果编号
+            var i = 0;
+            //结合setinterval动态显示组合
+            var interal = setInterval(function () {
+                if (i == 10) {
+                    i = 0;
+                } else {
+                    i++;
+                }
+                //蓝色矩形
+                context.fillStyle = "blue";
+                context.fillRect(10, 10, 60, 60);
+                //设置组合方式
+                context.globalCompositeOperation = oprtns[i];
+                //设置新图像（红色圆形）
+                context.beginPath();
+                context.fillStyle="red";
+                context.arc(60,60,30,0,Math.PI*2,false);
+                context.fill();
+            },1000);
+        }
+        //图片
+        function draw81() {
+            var image = new Image();
+            image.src = "img/fish.png";
+            var canvas = document.getElementById("draw81");
+            if (canvas == null) {
+                return false;
+            }
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#EEEEFF";
+            context.fillRect(0, 0, 400, 300);
+            image.onload = function () {
+                context.drawImage(image, 0, 0);
+                //context.drawImage(image, 100, 100, 200, 150, 50, 50, 300, 200);这里取的是实际尺寸
+            }
+        }
+        //椭圆
+        function draw91() {
+            var canvas = document.getElementById("draw91");
+            if (canvas == null) {
+                return false;
+            }
+            var context = canvas.getContext("2d");
+            var a = 100;
+            var b = 50;
+            var x = 100;
+            var y = 50;
+            var step = (a > b) ? 1 / a : 1 / b;
+            context.beginPath();
+            context.moveTo(x + a, y);
+            for (var i = 0; i < 2 * Math.PI; i += step) {
+                context.lineTo(x + a * Math.cos(i), y + b * Math.sin(i));
+            }
+            context.fillStyle = "#00ff22";
+            context.closePath();
+            context.fill();
+        }
+        $(function () {
+            ///* 段落注释
+			//	var a = 10;
+			//	var b = 11;
+			//	if(a>b){
+			//		alert("1111");
+			//		alert("22222");
+			//	}
+			//	 alert("3333");
+			//	效果只弹出了 3333
+				 
+			//	 var a = 10;
+			//	var b = 11;
+			//	if(a>b)
+			//		alert("1111");
+			//		alert("22222");
+				
+			//	 alert("3333");
+			//	 不加 {}弹出来 了2个提示框22222 和 3333
+			//	 结论 我们不加{}的时候 默认if{} 只包含第一行 在下面的不属于 if语句的内容
+				 
+			//	 三目运算符
+			//	  条件？正确情况的取值：错误情况的取值
+			//	 var aa= 10;
+			//	 var bb = 11;
+			//	 var cc = (a>b)?"正确":"错误";
+			//	 cc 的值是错误
+			//	 结论 三目运算符 条件成立 取第一个值，错误取第二个值
+			//	 相当于一个if else
+			//	 if(a >b){
+			//	 	var ccc ="正确";
+			//	 }else{
+			//	 	var cc =  "错误";
+			//	 }
+				//矩形
+            draw21();
+            draw22();
+            //圆
+            draw31();
+            draw32();
+            draw33();
+            //菊花
+            draw41();
+            //渐变
+            draw51();
+            draw52();
+            //弧线
+            draw61();
+            //交叉
+            draw71();
+            //图片
+            draw81();
+            //椭圆
+            draw91();
+        });
+    </script>
+</head>
+<body>
+    <p>矩形</p>
+    <canvas id="draw21" width="300" height="100"></canvas>    
+    <canvas id="draw22" width="300" height="100"></canvas>   
+    <p>圆</p>
+    <canvas id="draw31" width="200" height="200"></canvas>    
+    <canvas id="draw32" width="200" height="200"></canvas>   
+    <canvas id="draw33" width="200" height="200"></canvas>   
+    <p>菊花</p>
+    <canvas id="draw41" width="400" height="400"></canvas>
+    <p>渐变</p>
+    <canvas id="draw51" width="200" height="200"></canvas>
+    <canvas id="draw52" width="200" height="200"></canvas>
+    <p>弧线</p>
+    <canvas id="draw61" width="300" height="300"></canvas>
+    <p>交叉</p>
+    <canvas id="draw71" width="100" height="100"></canvas>
+    <p>图片</p>
+    <canvas id="draw81" width="100" height="100"></canvas>
+    <p>椭圆</p>
+    <canvas id="draw91" width="200" height="200"></canvas>
+</body>
+</html>
